@@ -12,7 +12,8 @@ class App extends React.Component{
     title:"",
     content:"",
     Posts:[],
-    file:null
+    file:null,
+    editmode:false
 }
 getusername=(e)=>{
     this.setState({
@@ -36,6 +37,7 @@ submitform=(e)=>{
         title:this.state.title,
         content:this.state.content,
         file:this.state.file,
+        editmode:this.state.editmode,
         time:new Date().toLocaleTimeString()
     }
     let allposts=this.state.Posts;
@@ -62,6 +64,20 @@ deleteitem=(i)=>{
   }) 
 
 }
+edit=(i)=>{
+  let array=this.state.Posts;
+  array[i].editmode=true;
+  this.setState({
+    Posts:array
+  }) 
+}
+save=(i,item)=>{
+  let array=this.state.Posts;
+  array.splice(i,1,item)
+  this.setState({
+    Posts:array
+  })
+}
   render(){
   
     return (
@@ -86,7 +102,7 @@ deleteitem=(i)=>{
         />
        <Route path="/showallposts" render={()=>{
          return(
-           <ShowallPosts all={this.state.Posts} delete={this.deleteitem}/>
+           <ShowallPosts all={this.state.Posts} delete={this.deleteitem} edit={this.edit}/>
          )
        }}/>
        </Switch>
