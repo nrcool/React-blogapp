@@ -7,7 +7,7 @@ export default function ShowallPosts(props) {
            {props.all.map((item,index)=>{
                return (
                 <div className="container alert-dark" key={index}>
-                    <h2 className="text-center text-bold bg-success">{item.title}<button className="float-right deletebtn">X</button></h2>
+                    <h2 className="text-center text-bold bg-success">{item.title}<button onClick={(index)=>props.delete(index)} className="float-right deletebtn">X</button></h2>
                 <details> 
                 <summary>Read full article ,click here</summary>
                     {item.file?(<img src={item.file} className="rounded mx-auto d-block" width="300" alt="myimage"/>):""}

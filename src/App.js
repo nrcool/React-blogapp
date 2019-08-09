@@ -54,6 +54,14 @@ uploadimage=(event)=>{
       file: URL.createObjectURL(event.target.files[0])
     })
 }
+deleteitem=(i)=>{
+  let array=this.state.Posts;
+  array.splice(i,1);
+  this.setState({
+    Posts:array
+  }) 
+
+}
   render(){
   
     return (
@@ -78,7 +86,7 @@ uploadimage=(event)=>{
         />
        <Route path="/showallposts" render={()=>{
          return(
-           <ShowallPosts all={this.state.Posts}/>
+           <ShowallPosts all={this.state.Posts} delete={this.deleteitem}/>
          )
        }}/>
        </Switch>
