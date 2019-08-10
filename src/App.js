@@ -75,6 +75,7 @@ save=(i,item)=>{
   let array=this.state.Posts;
   array[i].content=item;
   array[i].editmode=false;
+  array[i].time=new Date().toLocaleTimeString();
   console.log(item)
   console.log(array)
   this.setState({
