@@ -73,9 +73,12 @@ edit=(i)=>{
 }
 save=(i,item)=>{
   let array=this.state.Posts;
-  array.splice(i,1,item)
+  array[i].content=item;
+  array[i].editmode=false;
+  console.log(item)
+  console.log(array)
   this.setState({
-    Posts:array
+    Posts:array,
   })
 }
   render(){
@@ -102,7 +105,7 @@ save=(i,item)=>{
         />
        <Route path="/showallposts" render={()=>{
          return(
-           <ShowallPosts all={this.state.Posts} delete={this.deleteitem} edit={this.edit}/>
+           <ShowallPosts all={this.state.Posts} delete={this.deleteitem} edit={this.edit} save={this.save}/>
          )
        }}/>
        </Switch>

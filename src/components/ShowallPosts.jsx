@@ -1,21 +1,35 @@
-import React from 'react'
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit,faTrash, faSave } from "@fortawesome/free-solid-svg-icons"
 
-export default function ShowallPosts(props) {
-    console.log(props)
+export default class ShowallPosts extends React.Component {
+    constructor(props){
+        super(props);
+        this.state={
+            itemvalue:""
+        }
+    }
+    handlevalue=(e)=>{
+        this.setState({
+            itemvalue:e.target.value
+        })
+    }
+    render(){
+    console.log(this.props)
     return (
        <div>
-           {props.all.map((item,index)=>{
+           {this.props.all.map((item,index)=>{
                return (
                 <div className="container alert-dark" key={index}>
                     {item.editmode?(<div><h2 className="text-center text-bold bg-success">
                     {item.title}
-                    <button onClick={()=>props.save(index,item)} className="float-right deletebtn">save</button></h2>
+                    <button onClick={()=>this.props.save(index,this.state.itemvalue)} className="float-right btn btn-success"><FontAwesomeIcon icon={faSave} /></button></h2>
                     {item.file?(<img src={item.file} className="rounded mx-auto d-block" width="300" alt="myimage"/>):""}
-                    <textarea className="lead text-center p-2">{item.content}</textarea>
+                    <textarea className="lead text-center p-2" onChange={this.handlevalue} value={this.state.itemvalue}>{item.content}</textarea>
                 <hr/></div>):(<div><h2 className="text-center text-bold bg-success">
                     {item.title}
-                    <button onClick={()=>props.delete(index)} className="float-right deletebtn">X</button>
-                    <button onClick={()=>props.edit(index)} className="float-right deletebtn">edit</button></h2>
+                    <button onClick={()=>this.props.delete(index)} className="float-right btn btn-danger"><FontAwesomeIcon icon={faTrash} /></button>
+                    <button onClick={()=>this.props.edit(index)} className="float-right btn btn-primary"><FontAwesomeIcon icon={faEdit} /></button></h2>
                 <details> 
                 <summary>Read full article ,click here</summary>
                     {item.file?(<img src={item.file} className="rounded mx-auto d-block" width="300" alt="myimage"/>):""}
@@ -28,4 +42,5 @@ export default function ShowallPosts(props) {
            })}
        </div>
     )
+}
 }
