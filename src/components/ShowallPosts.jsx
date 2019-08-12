@@ -25,7 +25,7 @@ export default class ShowallPosts extends React.Component {
                     {item.title}
                     <button onClick={()=>this.props.save(index,this.state.itemvalue)} className="float-right btn btn-success"><FontAwesomeIcon icon={faSave} /></button></h2>
                     {item.file?(<img src={item.file} className="rounded mx-auto d-block" width="300" alt="myimage"/>):""}
-                    <textarea className="lead text-center p-2" onChange={this.handlevalue} value={this.state.itemvalue}>{item.content}</textarea>
+                    <textarea className="lead text-center p-2" onChange={this.handlevalue}  value={this.state.itemvalue}>{item.content}</textarea>
                 <hr/></div>):(<div><h2 className="text-center text-bold bg-success">
                     {item.title}
                     <button onClick={()=>this.props.delete(index)} className="float-right btn btn-danger"><FontAwesomeIcon icon={faTrash} /></button>
