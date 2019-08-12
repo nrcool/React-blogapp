@@ -49,7 +49,6 @@ submitform=(e)=>{
         content:"",
 
     })
-    console.log(this.state)
 }
 uploadimage=(event)=>{ 
     this.setState({
@@ -90,7 +89,7 @@ save=(i,item)=>{
       <Navbar/>
       <Switch>
        <Route exact path="/" component={Home}/> 
-       <Route path="/createpost"
+       <Route exact path="/createpost"
         render={()=>{
           return( <Createpost getcontent={this.getcontent}
           gettitle={this.gettitle}
@@ -104,7 +103,7 @@ save=(i,item)=>{
        
       }
         />
-       <Route path="/showallposts" render={()=>{
+       <Route exact path="/showallposts" render={()=>{
          return(
            <ShowallPosts all={this.state.Posts} delete={this.deleteitem} edit={this.edit} save={this.save}/>
          )
@@ -117,4 +116,4 @@ save=(i,item)=>{
   
 }
 
-export default App;
+export default (App);
