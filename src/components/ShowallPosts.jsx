@@ -15,7 +15,6 @@ export default class ShowallPosts extends React.Component {
         })
     }
     render(){
-    console.log(this.props)
     return (
        <div>
            {this.props.all.map((item,index)=>{

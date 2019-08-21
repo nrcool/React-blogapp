@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import {withRouter} from "react-router-dom";
 
-export default class Createpost extends Component {
 
+ class Createpost extends Component {
   render() {
+    console.log(this.props)
     return (
-      <form onSubmit={this.props.submitform} >
+    <>
+      <form onSubmit={(e)=>this.props.submitform(e,this.props)} >
         <div className="form-group row">
           <label className="col-sm-2 col-form-label" >UserName :</label>
           <div className="col-sm-10">
@@ -31,6 +34,9 @@ export default class Createpost extends Component {
         </div>
         <button type="submit" className="btn btn-success">Create a Post</button>
       </form>
+      </>
     )
   }
 }
+
+export default withRouter(Createpost)

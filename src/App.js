@@ -13,7 +13,8 @@ class App extends React.Component{
     content:"",
     Posts:[],
     file:null,
-    editmode:false
+    editmode:false,
+    redirect:null
 }
 getusername=(e)=>{
     this.setState({
@@ -30,7 +31,7 @@ getcontent=(e)=>{
         content:e.target.value
     })
 }
-submitform=(e)=>{
+submitform=(e,a)=>{
     e.preventDefault();
     let post={
         username:this.state.username,
@@ -38,7 +39,7 @@ submitform=(e)=>{
         content:this.state.content,
         file:this.state.file,
         editmode:this.state.editmode,
-        time:new Date().toLocaleTimeString()
+        time:new Date().toLocaleTimeString(),
     }
     let allposts=this.state.Posts;
     allposts.push(post);
@@ -46,9 +47,9 @@ submitform=(e)=>{
         Posts:allposts,
         username:"",
         title:"",
-        content:"",
-
+        content:""
     })
+    a.history.push("/showallposts")
 }
 uploadimage=(event)=>{ 
     this.setState({
