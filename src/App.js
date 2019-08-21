@@ -4,7 +4,7 @@ import Home from './components/Home';
 import Createpost from './components/Createpost';
 import ShowallPosts from './components/ShowallPosts';
 import Navbar from './components/Navbar';
-import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
+import {HashRouter as Router,Route,Switch} from "react-router-dom";
 
 class App extends React.Component{
   state={
