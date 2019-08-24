@@ -1,7 +1,7 @@
 # React Blog App:
 
 
--### Click on image
+### Click on image
 --- 
     [![Welcome](Welcome.png)]()
     [![CreatePost](CreatePost.png)]()
