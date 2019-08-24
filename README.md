@@ -3,5 +3,5 @@
 
 ### Click on image
 [![image](Welcome.png)](https://nrcool.github.io/React-blogapp/)
-[![image](CreatePost.png)](https://nrcool.github.io/React-blogapp/createpost)
-[![image](ShowPost.png)](https://nrcool.github.io/React-blogapp/showallposts)
+[![image](CreatePost.png)](https://nrcool.github.io/React-blogapp/#/createpost)
+[![image](ShowPost.png)](https://nrcool.github.io/React-blogapp/#/showallposts)
